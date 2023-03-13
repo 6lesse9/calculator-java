@@ -5,9 +5,12 @@ pipeline {
         stage ('docker_build') {
             steps {
                 dir ('dockerfiles') {
-                    sh 'docker build .'
+                    sh 'docker build -t calculator1.0 .'
+                }
+            }
+            steps {
+                    sh 'docker run -name calculator1.0 -t -i calculator1.0'
                 }
             }
         }
     }
-}
