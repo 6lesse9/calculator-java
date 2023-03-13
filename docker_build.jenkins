@@ -8,9 +8,11 @@ pipeline {
                     sh 'docker build -t calculator1.0 .'
                 }
             }
+         stage ('docker_run') {
             steps {
                     sh 'docker run -name calculator1.0 -t -i calculator1.0'
                 }
             }
         }
     }
+}
